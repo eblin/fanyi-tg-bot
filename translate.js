@@ -3,6 +3,7 @@ const translate = new Translate({
   projectId: process.env.GOOGLE_PROJECT_ID,
   key: process.env.GOOGLE_API_KEY})
 module.exports = async function (msg) {
+  if (msg.length < 3) return Promise.reject(new Error('Message to translate needs to be 3 characters or longer.'))
   const options = {
     from: 'en',
 // zh-CN       Chinese (Simplified)

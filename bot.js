@@ -17,6 +17,19 @@ bot.command('leave', (ctx) => {
     ctx.leaveChat()
   }
 })
+// respond to mentions
+bot.entity('mention', (ctx) => {
+  const botName = bot.options.username
+  // Let's see if someone is mentioning the bot
+  if (ctx.message.text.indexOf(botName) > -1) {
+    // console.log('mentions bot', ctx.message)
+    translateToChinese(cleanMsg(ctx.message)).then(msg => {
+      ctx.reply(msg)
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+})
 bot.on('message', (ctx) => {
   // only respond to DMs from here...
   if (ctx.message.chat.type === 'private') {
@@ -26,17 +39,6 @@ bot.on('message', (ctx) => {
       ctx.reply(msg)
     }).catch(err => {
       console.error(err)
-    })
-  }
-})
-// respond to mentions
-bot.entity('mention', (ctx) => {
-  const botName = bot.options.username
-  // Let's see if someone is mentioning the bot
-  if (ctx.message.text.indexOf(botName) > -1) {
-    // console.log('mentions bot', ctx.message)
-    translateToChinese(cleanMsg(ctx.message)).then(msg => {
-      ctx.reply(msg)
     })
   }
 })
