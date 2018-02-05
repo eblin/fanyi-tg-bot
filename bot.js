@@ -21,7 +21,7 @@ bot.command('leave', (ctx) => {
 bot.entity('mention', (ctx) => {
   const botName = bot.options.username
   // Let's see if someone is mentioning the bot
-  if (ctx.message.text.indexOf(botName) > -1) {
+  if (ctx.message.text.indexOf(botName) > -1 || ctx.message.text.indexOf(botName.toLowerCase()) > -1) {
     // console.log('mentions bot', ctx.message)
     translateToChinese(cleanMsg(ctx.message)).then(msg => {
       ctx.reply(msg)
