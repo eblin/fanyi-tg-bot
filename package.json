@@ -7,7 +7,9 @@
   "dependencies": {
     "@google-cloud/translate": "^1.1.0",
     "dotenv": "^5.0.0",
-    "telegraf": "^3.17.6"
+    "request": "^2.83.0",
+    "telegraf": "^3.17.6",
+    "@google-cloud/speech": "latest"
   },
   "devDependencies": {
     "standard": "^10.0.3"
