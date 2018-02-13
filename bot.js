@@ -23,9 +23,9 @@ const translateMessage = async function (text) {
   }
 }
 const mentionsBot = function (text) {
-  const botName = bot.options.username
+  const botName = bot.options.username.toLowerCase()
   // Let's see if someone is mentioning the bot
-  return (text.indexOf(botName) > -1 || text.indexOf(botName.toLowerCase()) > -1)
+  return (text.indexOf(botName) > -1)
 }
 const voiceNoteToText = async function (ctx) {
   const voiceNote = ctx.message.voice
